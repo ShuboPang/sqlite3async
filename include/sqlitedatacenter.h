@@ -44,12 +44,16 @@ private:
   bool ExecSql(const std::string &sql, sqlite3_callback callback = nullptr,
                void *param = nullptr);
   void *SqlThread(void *arg);
+
 private:
   std::string table_name;
   SYSTEM_SETTING system_setting;
   sqlite3 *system_db = nullptr;
   std::thread *sql_thread;
   bool exit;
+  moodycamel::ConcurrentQueue<std::string> sql_queue;
+  int sql_tfd;
+  uint64_t sql_exp;
 };
 
 #endif // SQLITEDATACENTER_H

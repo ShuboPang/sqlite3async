@@ -1,8 +1,7 @@
 #include "sqlitedatacenter.h"
 
-int sql_tfd;
-uint64_t sql_exp;
-static moodycamel::ConcurrentQueue<std::string> sql_queue;
+
+
 
 #ifdef hc_debug
 #undef hc_debug

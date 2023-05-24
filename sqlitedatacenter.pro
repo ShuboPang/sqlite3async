@@ -25,11 +25,6 @@ LIBS += -lrt -lpthread -lz
 
 LIBS += -static-libstdc++ -ldl
 
-
-
-
-
-
 ############################################################
 #DEFINES += HW_ARM_RZG2L        #RZG2L硬件
 #DEFINES += HW_ARM_TI           #TI335X硬件
@@ -90,3 +85,5 @@ UI_DIR = temp/temp_$${suffix}
 MOC_DIR = temp/temp_$${suffix}
 RCC_DIR = temp/temp_$${suffix}
 
+
+unix:QMAKE_POST_LINK += "mkdir output/include -p && cp include/*.h  output/include/ -r"

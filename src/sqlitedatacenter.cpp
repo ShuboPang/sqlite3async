@@ -1,8 +1,5 @@
 #include "sqlitedatacenter.h"
 
-
-
-
 #ifdef hc_debug
 #undef hc_debug
 #define hc_debug printf
@@ -149,6 +146,8 @@ bool SqliteDataCenter::InitSystemSettingTable(const std::string &name,
   sql_thread = new std::thread(&SqliteDataCenter::SqlThread, this, nullptr);
   return true;
 }
+
+sqlite3 *SqliteDataCenter::GetSqlite3() { return system_db; }
 
 bool SqliteDataCenter::InsertSystemSettingTable(const std::string &key,
                                                 const std::string &group,

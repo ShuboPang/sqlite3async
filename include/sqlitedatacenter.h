@@ -24,6 +24,8 @@ public:
   bool InitSystemSettingTable(const std::string &name,
                               const std::string &table);
 
+  sqlite3 *GetSqlite3();
+
 public:
   std::string GetCustomSettings(const std::string &key,
                                 const std::string &defval,
